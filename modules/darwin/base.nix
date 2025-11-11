@@ -22,6 +22,9 @@
   system.stateVersion = stateVersion;
   system.primaryUser = user;
 
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToControl = true;
+
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system.defaults.dock = dockSettings;

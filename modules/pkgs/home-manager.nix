@@ -12,4 +12,5 @@ with pkgs; [
   ninja
   gcc-arm-embedded
   codex
+  presenterm
 ]

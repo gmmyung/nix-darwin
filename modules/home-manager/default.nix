@@ -11,7 +11,14 @@
 
   home-manager.users.${user} = {
     home.stateVersion = homeStateVersion;
-    programs.zsh.enable = true;
+    programs.zsh = {
+      enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [ "git" ];
+      };
+    };
 
     programs.git = {
       enable = true;
