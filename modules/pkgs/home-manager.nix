@@ -1,6 +1,7 @@
 { pkgs }:
 with pkgs; [
   neovim
+  nodejs
   btop
   ripgrep
   gh
