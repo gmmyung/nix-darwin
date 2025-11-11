@@ -14,9 +14,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ghostty-config = {
+      url = "github:gmmyung/ghostty";
+      flake = false;
+    };
+
+    nvim-config = {
+      url = "github:gmmyung/nvim";
+      flake = false;
+    };
+
   };
 
-  outputs = inputs @ { self, nixpkgs, nix-darwin, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, nix-darwin, home-manager, ghostty-config, nvim-config, ... }:
     let
       system = "aarch64-darwin";
       user = "gmmyung";
@@ -73,6 +83,8 @@
 
       coreSystemPackages = import ./modules/pkgs/system.nix { inherit pkgs; };
       homeManagerPackages = import ./modules/pkgs/home-manager.nix { inherit pkgs; };
+      ghosttyConfigRepo = ghostty-config;
+      nvimConfigRepo = nvim-config;
       gitConfig = {
         name = "gmmyung";
         email = "gmmyung@kaist.ac.kr";
@@ -87,7 +99,7 @@
           ./modules/home-manager/default.nix
         ];
         specialArgs = {
-          inherit self user homeDir stateVersion homeStateVersion experimentalFeatures dockSettings homebrewConfig coreSystemPackages homeManagerPackages gitConfig;
+          inherit self user homeDir stateVersion homeStateVersion experimentalFeatures dockSettings homebrewConfig coreSystemPackages homeManagerPackages gitConfig pkgs ghosttyConfigRepo nvimConfigRepo;
         };
       };
     };

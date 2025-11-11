@@ -6,6 +6,7 @@
 , dockSettings
 , homebrewConfig
 , coreSystemPackages
+, pkgs
 , ...
 }:
 
@@ -13,7 +14,10 @@
   nix.settings.experimental-features = experimentalFeatures;
   environment.systemPackages = coreSystemPackages;
 
-  users.users.${user}.home = homeDir;
+  users.users.${user} = {
+    home = homeDir;
+    shell = pkgs.zsh;
+  };
   system.configurationRevision = self.rev or self.dirtyRev or null;
   system.stateVersion = stateVersion;
   system.primaryUser = user;
