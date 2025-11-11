@@ -1,0 +1,6 @@
+[submodule "config/ghostty"]
+	path = config/ghostty
+	url = https://github.com/gmmyung/ghostty.git
+[submodule "config/nvim"]
+	path = config/nvim
+	url = https://github.com/gmmyung/nvim.git
