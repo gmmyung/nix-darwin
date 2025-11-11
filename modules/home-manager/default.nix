@@ -2,8 +2,6 @@
 , homeStateVersion
 , homeManagerPackages
 , gitConfig
-, ghosttyConfigRepo
-, nvimConfigRepo
 , ...
 }:
 
@@ -26,7 +24,7 @@
     home.packages = homeManagerPackages;
 
     xdg.configFile."btop/btop.conf".source = ../../config/btop/btop.conf;
-    xdg.configFile."nvim".source = nvimConfigRepo;
-    xdg.configFile."ghostty/config".source = "${ghosttyConfigRepo}/config";
+    xdg.configFile."nvim".source = ../../config/nvim;
+    xdg.configFile."ghostty/config".source = ../../config/ghostty/config;
   };
 }
