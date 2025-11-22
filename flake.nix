@@ -37,9 +37,20 @@
         magnification = true;
         largesize = 64;
         show-recents = false;
-        static-only = true;
+        static-only = false;
         orientation = "bottom";
         minimize-to-application = true;
+        persistent-apps = [ ];
+        persistent-others = [
+          {
+            folder = {
+              path = "${homeDir}/Downloads";
+              showas = "fan";
+              displayas = "stack";
+              arrangement = "date-added";
+            };
+          }
+        ];
       };
 
       homebrewConfig = import ./modules/darwin/homebrew.nix;

@@ -38,6 +38,7 @@ set_tab_settings('md', 2, true)
 set_tab_settings('json', 2, true)
 set_tab_settings('toml', 2, true)
 set_tab_settings('yaml', 2, true)
+set_tab_settings('nix', 2, true)
 
 -- XML
 set_tab_settings('html', 2, true)
