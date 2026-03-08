@@ -1,10 +1,20 @@
 {
   enable = true;
-  onActivation.cleanup = "uninstall";
-  taps = [ "laishulu/homebrew" ];
+  onActivation = {
+    autoUpdate = true;
+    upgrade = true;
+    cleanup = "uninstall";
+  };
+  taps = [ 
+    "laishulu/homebrew" 
+    "jannis-baum/tap"
+  ];
   brews = [ 
     "mas"
     "macism"
+    "vivify"
+    "platformio"
+    "steipete/tap/remindctl"
   ];
   casks = [
     # Daily Apps
@@ -12,6 +22,13 @@
     "chatgpt"
     "discord"
     "zoom"
+    "notion"
+    "google-chrome"
+    "codex"
+    "macwhisper"
+    "openclaw"
+    "telegram"
+    "obsidian"
 
     # Hardware + maker tooling
     "raspberry-pi-imager"
@@ -21,6 +38,11 @@
     "freecad"
     "inkscape"
     "arduino-ide"
+    "balenaetcher"
+    "rustdesk"
+    "qgroundcontrol"
+    "blender"
+    "creality-print"
 
     # macOS polish
     "stats"
