@@ -10,6 +10,7 @@
     "jannis-baum/tap"
   ];
   brews = [ 
+    "fastfetch"
     "mas"
     "macism"
     "vivify"
