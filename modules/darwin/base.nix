@@ -10,6 +10,11 @@
 , ...
 }:
 
+let
+  flakeDir = "/etc/nix-darwin";
+  autoUpgradeStdoutLog = "/var/log/nix-darwin-auto-upgrade.log";
+  autoUpgradeStderrLog = "/var/log/nix-darwin-auto-upgrade.error.log";
+in
 {
   nix.settings.experimental-features = experimentalFeatures;
   environment.systemPackages = coreSystemPackages;
@@ -29,4 +34,37 @@
 
   system.defaults.dock = dockSettings;
   homebrew = homebrewConfig;
+
+  launchd.daemons.nix-darwin-auto-upgrade = {
+    environment = {
+      HOME = "/var/root";
+      LOGNAME = "root";
+      USER = "root";
+    };
+    path = [ pkgs.git ];
+    script = ''
+      set -euo pipefail
+
+      if /usr/bin/pmset -g batt | /usr/bin/grep -q "Battery Power"; then
+        echo "Skipping nix-darwin auto-upgrade because the system is on battery power."
+        exit 0
+      fi
+
+      cd ${flakeDir}
+      /run/current-system/sw/bin/nix \
+        --extra-experimental-features 'nix-command flakes' \
+        flake update --flake ${flakeDir}
+      /run/current-system/sw/bin/darwin-rebuild switch --flake ${flakeDir}#${user}
+    '';
+    serviceConfig = {
+      RunAtLoad = false;
+      StartCalendarInterval = {
+        Hour = 4;
+        Minute = 0;
+      };
+      WorkingDirectory = flakeDir;
+      StandardOutPath = autoUpgradeStdoutLog;
+      StandardErrorPath = autoUpgradeStderrLog;
+    };
+  };
 }
