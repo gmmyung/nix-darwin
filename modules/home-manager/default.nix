@@ -28,6 +28,7 @@
         fi
 
         autoload -Uz add-zsh-hook
+        # Cache repo probes so repeated cd operations do not keep re-evaluating the same flake.
         typeset -gA _auto_devshell_cache
         typeset -g _auto_devshell_system=""
 
@@ -52,6 +53,7 @@
             return 1
           fi
 
+          # Only auto-enter repos that expose a default dev shell for this machine.
           if nix eval --raw "$repo_root#devShells.''${_auto_devshell_system}.default.drvPath" >/dev/null 2>&1; then
             _auto_devshell_cache[$repo_root]="1"
             return 0
@@ -74,6 +76,7 @@
 
           _auto_devshell_has_default_shell "$repo_root" || return
 
+          # Start a nested shell once per repo; exiting it returns to the parent shell.
           AUTO_DEVSHELL_ROOT="$repo_root" nix develop "$repo_root" --command zsh -i
         }
 
