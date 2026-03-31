@@ -29,6 +29,7 @@
     "openclaw"
     "telegram"
     "obsidian"
+    "cmux"
 
     # Hardware + maker tooling
     "raspberry-pi-imager"
