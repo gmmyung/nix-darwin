@@ -101,8 +101,15 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter", "BufEnter" }, {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	callback = function()
-		vim.lsp.buf.format({ async = false })
+	callback = function(args)
+		local has_formatter = next(vim.lsp.get_clients({
+			bufnr = args.buf,
+			method = vim.lsp.protocol.Methods.textDocument_formatting,
+		})) ~= nil
+
+		if has_formatter then
+			vim.lsp.buf.format({ async = false, bufnr = args.buf })
+		end
 	end,
 })
 

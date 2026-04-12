@@ -16,6 +16,7 @@
     "vivify"
     "platformio"
     "steipete/tap/remindctl"
+    "easyeda2kicad"
   ];
   casks = [
     # Daily Apps
@@ -31,6 +32,7 @@
     "telegram"
     "obsidian"
     "cmux"
+    "equinox"
 
     # Hardware + maker tooling
     "raspberry-pi-imager"
@@ -48,7 +50,6 @@
 
     # macOS polish
     "stats"
-    "jordanbaird-ice"
     "logi-options+"
     "betterdisplay"
   ];
@@ -64,5 +65,6 @@
     "Tailscale" = 1475387142;
     "Pets Therapy" = 1575542220;
     "Amphetamine" = 937984704;
+    "DaisyDisk" = 411643860;
   };
 }
