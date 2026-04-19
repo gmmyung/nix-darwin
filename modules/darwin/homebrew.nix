@@ -30,6 +30,7 @@
     "macwhisper"
     "openclaw"
     "telegram"
+    "element"
     "obsidian"
     "cmux"
     "equinox"
