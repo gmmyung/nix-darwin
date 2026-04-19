@@ -33,7 +33,7 @@
     "obsidian"
     "cmux"
     "equinox"
-    "temurin"
+    "corretto@11"
 
     # Hardware + maker tooling
     "raspberry-pi-imager"
