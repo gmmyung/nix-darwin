@@ -3,7 +3,6 @@ with pkgs; [
   # Daily driver CLI + editors
   neovim
   nodejs
-  openjdk_headless
   gh
   ripgrep
   btop
