@@ -33,6 +33,7 @@
     "obsidian"
     "cmux"
     "equinox"
+    "minecraft"
     "corretto@11"
 
     # Hardware + maker tooling
