@@ -87,6 +87,7 @@
 
     programs.git = {
       enable = true;
+      signing.format = "openpgp";
       settings = {
         user.name = gitConfig.name;
         user.email = gitConfig.email;
