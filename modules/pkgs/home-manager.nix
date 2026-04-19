@@ -17,6 +17,7 @@ with pkgs; [
   # Miscellaneous utilitier
   tree-sitter
   lazygit
+  typst
 
   # Fonts
   d2coding
