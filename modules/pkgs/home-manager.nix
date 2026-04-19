@@ -7,14 +7,6 @@ with pkgs; [
   ripgrep
   btop
 
-  # Build tools
-  cmake
-  ninja
-  llvm
-  
-  # Web tools
-  hugo
-
   # Language servers
   cmake-language-server
   lua-language-server
@@ -22,21 +14,9 @@ with pkgs; [
   pyright
   rust-analyzer
 
-  # Embedded utilities
-  gcc-arm-embedded
-  probe-rs-tools
-  arduino-cli
-  tio
-
-  # Miscellaneous utilities
+  # Miscellaneous utilitier
   tree-sitter
   lazygit
-  presenterm
-  mermaid-cli
-  pandoc
-  tectonic
-  marp-cli
-  pixi
 
   # Fonts
   d2coding
