@@ -52,6 +52,7 @@
 
     # macOS polish
     "stats"
+    "syntax-highlight"
     "logi-options+"
     "betterdisplay"
   ];
