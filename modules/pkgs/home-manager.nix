@@ -14,6 +14,9 @@ with pkgs; [
   pyright
   rust-analyzer
 
+  # Embedded utilities
+  arduino-cli
+
   # Miscellaneous utilitier
   tree-sitter
   lazygit
